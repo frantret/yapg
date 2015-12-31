@@ -8,6 +8,7 @@ yapg: yet another password generator
 
 
 import argparse
+import math
 import random
 import string
 
@@ -51,11 +52,31 @@ def build_list(**kwargs):
     return "".join(Set)
 
 
-def gen_pwd(List, Length):
+def gen_pwd_cand(List, Length):
     """\
     Generates one password candidate.
     """
     return "".join(SYSRAND.choice(List) for _ in range(Length))
+
+
+def entropy(String):
+    """\
+    Calculates the Shannon entropy of a string.
+    """
+    Prob = (float(String.count(c)) / len(String) for c in set(String))
+    return - sum(p * math.log(p) / math.log(2.0) for p in Prob)
+
+
+def gen_pwd(List, Length):
+    """\
+    Selects one password for its relative higher entropy, amongst a set
+    of password candidates.
+    """
+    Candidates = (gen_pwd_cand(List, Length) for _ in range(100))
+    Entropies = {c: entropy(c) for c in Candidates}
+    MaxEnt = max(Entropies.values())
+    Strongest = tuple(c for c in Entropies if Entropies[c] == MaxEnt)
+    return SYSRAND.choice(Strongest)
 
 
 def build_pwd(List, **kwargs):
