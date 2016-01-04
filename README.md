@@ -29,7 +29,7 @@ Utilisation
 Licence
 -------
 
-Licence de type BSD avec 3 clauses -- voir LICENSE.md.
+Licence de type BSD avec 3 clauses -- voir [LICENSE.md][1].
 
 yapg: yet another password generator
 ====================================
@@ -58,4 +58,6 @@ Use
 License
 -------
 
-3-clause BSD-type license---see LICENSE.md.
+3-clause BSD-type license---see [LICENSE.md][1].
+
+[1]: LICENSE.md
