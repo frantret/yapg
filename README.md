@@ -26,6 +26,11 @@ Utilisation
     ./gyapg.pyw
     ```
 
+Licence
+-------
+
+Licence de type BSD avec 3 clauses -- voir LICENSE.txt.
+
 yapg: yet another password generator
 ====================================
 
@@ -49,3 +54,8 @@ Use
     ```bash
     ./gyapg.pyw
     ```
+
+License
+-------
+
+3-clause BSD-type license---see LICENSE.txt.
