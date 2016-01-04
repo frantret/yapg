@@ -136,8 +136,7 @@ class PasswordGenerator(Window):
         self.give_space()
         # Gives focus to the entry field.
         LengthEnt.focus()
-        # Assigns the calculate function to the return key
-        # (in addition to the button).
+        # Assigns the functions to keys (in addition to the buttons).
         self.bind("<F1>", self.build_about)
         self.bind("<Return>", self.generate)
         self.bind("<Control-c>", self.copy)
