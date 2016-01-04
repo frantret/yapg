@@ -1,5 +1,7 @@
 <!--- -*- coding: utf-8 -*- --->
 
+*(English version below.)*
+
 yapg : encore un générateur de mots de passe
 ============================================
 
