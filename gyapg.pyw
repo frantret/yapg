@@ -155,8 +155,8 @@ class PasswordGenerator(Window):
         """
         # transfers GUI settings to the operational dictionary
         self.DicSettings = dict()
-        for Key in self.TkSettings.keys():
-            self.DicSettings[Key] = self.TkSettings[Key].get()
+        for k in self.TkSettings.keys():
+            self.DicSettings[k] = self.TkSettings[k].get()
         # if there is any change in the settings, re-builds the list
         if self.TempSettings != self.DicSettings:
             self.TempSettings = self.DicSettings
