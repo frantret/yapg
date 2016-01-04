@@ -18,6 +18,8 @@ Utilisation
 
     ```bash
     ./yapg.py [options]
+    # description des options :
+    ./yapg.py -h
     ```
 
 - pour une interface graphique :
@@ -47,6 +49,8 @@ Use
 
     ```bash
     ./yapg.py [options]
+    # description of the options:
+    ./yapg.py -h
     ```
 
 - for a graphical interface:
