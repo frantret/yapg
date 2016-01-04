@@ -106,6 +106,9 @@ def main(**kwargs):
     """\
     Main function.
     """
+    # The following condition is for the command line interface to
+    # generate a password even if no arguments for allowing characters
+    # are given.
     if not (
         kwargs.get("digits") or
         kwargs.get("lowercase") or
