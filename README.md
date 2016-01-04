@@ -16,11 +16,15 @@ Utilisation
 - pour une interface en ligne de commande (sans option, elle génère un
   mot de passe avec des options par défaut) :
 
-      ./yapg.py [options]
+    ```bash
+    ./yapg.py [options]
+    ```
 
 - pour une interface graphique :
 
-      ./gyapg.pyw
+    ```bash
+    ./gyapg.pyw
+    ```
 
 yapg: yet another password generator
 ====================================
@@ -36,8 +40,12 @@ Use
 - for a command line interface (with no options, it yields a password
   with default options):
 
-      ./yapg.py [options]
+    ```bash
+    ./yapg.py [options]
+    ```
 
 - for a graphical interface:
 
-      ./gyapg.pyw
+    ```bash
+    ./gyapg.pyw
+    ```
