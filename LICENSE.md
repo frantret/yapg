@@ -1,3 +1,5 @@
+<!--- -*- coding: utf-8 -*- --->
+
 Copyright (c) 2015, Frantret (https://git.framasoft.org/u/frantret).
 All rights reserved.
 
