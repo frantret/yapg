@@ -59,7 +59,7 @@ class PasswordGenerator(Window):
         # initializes the variables
         self.DicSettings = dict(yapg.DEFAULT)
         self.TempSettings = dict(yapg.DEFAULT)
-        self.TkSettings = {}
+        self.TkSettings = dict()
         self.TkSettings["length"] = tk.StringVar()
         self.TkSettings["digits"] = tk.BooleanVar()
         self.TkSettings["lowercase"] = tk.BooleanVar()
