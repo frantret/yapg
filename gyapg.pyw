@@ -20,7 +20,7 @@ class Window(tk.Tk):
     def __init__(self, title):
         super().__init__()
         self.title(title)
-        # assigns closing the window to the escape key
+        # Assigns closing the window to the escape key.
         self.bind("<Escape>", lambda e: self.destroy())
 
     def give_space(self):
@@ -39,11 +39,11 @@ class About(Window):
     def __init__(self):
         super().__init__("About gyapg")
         self.columnconfigure(0, weight=1)
-        # sets the grid
+        # Sets the grid.
         TxtDoc = ttk.Label(self, text=__doc__.strip())
         TxtDoc.grid(row=0, column=0, sticky=(tk.W, tk.E))
         self.give_space()
-        # assigns closing the window to the return key and click
+        # Assigns closing the window to the return key and click.
         self.bind("<Return>", lambda e: self.destroy())
         self.bind("<Button-1>", lambda e: self.destroy())
 
@@ -56,7 +56,7 @@ class PasswordGenerator(Window):
     def __init__(self):
         super().__init__("gyapg")
         self.columnconfigure(1, weight=1)
-        # initializes the variables
+        # Initializes the variables.
         self.DicSettings = dict(yapg.DEFAULT)
         self.TempSettings = dict(yapg.DEFAULT)
         self.TkSettings = dict()
@@ -70,7 +70,7 @@ class PasswordGenerator(Window):
             self.TkSettings[Key].set(self.DicSettings[Key])
         self.VarList = tk.StringVar()
         self.VarPassword = tk.StringVar()
-        # sets the grid elements
+        # Sets the grid elements.
         TxtLength = ttk.Label(self, text="length:")
         LengthEnt = ttk.Entry(
             self,
@@ -120,7 +120,7 @@ class PasswordGenerator(Window):
             text="copy to clipboard",
             command=self.copy
         )
-        # sets the grid layout
+        # Sets the grid layout.
         TxtLength.grid(row=0, column=0, sticky=tk.W)
         LengthEnt.grid(row=0, column=1, sticky=(tk.W, tk.E))
         TxtChars.grid(row=0, column=2, sticky=tk.W)
@@ -134,10 +134,10 @@ class PasswordGenerator(Window):
         TxtPassword.grid(row=6, column=1, sticky=(tk.W, tk.E))
         ButCopy.grid(row=6, column=2, sticky=tk.E)
         self.give_space()
-        # gives focus to the entry field
+        # Gives focus to the entry field.
         LengthEnt.focus()
-        # assigns the calculate function to the return key
-        # (in addition to the button)
+        # Assigns the calculate function to the return key
+        # (in addition to the button).
         self.bind("<F1>", self.build_about)
         self.bind("<Return>", self.generate)
         self.bind("<Control-c>", self.copy)
@@ -153,15 +153,15 @@ class PasswordGenerator(Window):
         """\
         Generates a password and assigns it.
         """
-        # transfers GUI settings to the operational dictionary
+        # Transfers GUI settings to the operational dictionary.
         self.DicSettings = dict()
         for k in self.TkSettings.keys():
             self.DicSettings[k] = self.TkSettings[k].get()
-        # if there is any change in the settings, re-builds the list
+        # If there is any change in the settings, re-builds the list.
         if self.TempSettings != self.DicSettings:
             self.TempSettings = self.DicSettings
             self.VarList.set(yapg.build_list(**self.DicSettings))
-        # builds a new password
+        # Builds a new password.
         self.VarPassword.set(
             yapg.build_pwd(self.VarList.get(), **self.DicSettings)
         )
