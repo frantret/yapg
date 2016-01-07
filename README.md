@@ -13,20 +13,20 @@ basique de Python. Plus spécifiquement, Python 3.4 ou supérieur.
 Utilisation
 -----------
 
-- pour une interface en ligne de commande (sans option, elle génère un
-  mot de passe avec des options par défaut) :
+-   pour une interface en ligne de commande (sans option, elle génère un
+    mot de passe avec des options par défaut) :
 
-    ```bash
-    ./yapg.py [options]
-    # description des options :
-    ./yapg.py -h
-    ```
+        ```bash
+        ./yapg.py [options]
+        # description des options :
+        ./yapg.py -h
+        ```
 
-- pour une interface graphique :
+-   pour une interface graphique :
 
-    ```bash
-    ./gyapg.pyw
-    ```
+        ```bash
+        ./gyapg.pyw
+        ```
 
 Licence
 -------
@@ -44,20 +44,20 @@ installation. More specifically, Python 3.4 or above.
 Use
 ---
 
-- for a command line interface (with no options, it yields a password
-  with default options):
+-   for a command line interface (with no options, it yields a password
+    with default options):
 
-    ```bash
-    ./yapg.py [options]
-    # description of the options:
-    ./yapg.py -h
-    ```
+        ```bash
+        ./yapg.py [options]
+        # description of the options:
+        ./yapg.py -h
+        ```
 
-- for a graphical interface:
+-   for a graphical interface:
 
-    ```bash
-    ./gyapg.pyw
-    ```
+        ```bash
+        ./gyapg.pyw
+        ```
 
 License
 -------
