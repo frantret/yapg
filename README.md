@@ -14,6 +14,15 @@ Il est mis en œuvre en Python. Sa seule dépendance est une installation
 basique de Python. Plus spécifiquement : Python 3.4 ou supérieur, et
 Python-TK pour l'interface graphique.
 
+Caractéristiques
+----------------
+
+-   multi-plateforme
+
+-   source d'entropie : uniquement celle du système
+
+-   option pour éviter les caractères homoglyphes (``dclI1O0S5Z2rnm``)
+
 Utilisation
 -----------
 
@@ -48,6 +57,15 @@ Dependencies
 It is implemented in Python. Its only dependency is a basic Python
 installation. More specifically: Python 3.4 or above, and Python-TK for
 the graphical interface.
+
+Features
+--------
+
+-   multi-platform
+
+-   entropy source: the one of the system only
+
+-   option to avoid homoglyph characters (``dclI1O0S5Z2rnm``)
 
 Use
 ---
