@@ -16,7 +16,7 @@ import string
 HOMOGLYPHS = "dclI1O0S5Z2rnm"
 SYSRAND = random.SystemRandom()
 DEFAULT = {
-    "length": 20,
+    "length": 40,
     "digits": True,
     "lowercase": True,
     "uppercase": True,
