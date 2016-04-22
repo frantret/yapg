@@ -3,7 +3,8 @@
 
 
 """\
-gyapg: GUI for yapg (yet another password generator)
+gyapg: graphical user interface for yapg (yet another password \
+generator)
 """
 
 
