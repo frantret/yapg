@@ -13,7 +13,7 @@ import random
 import string
 
 
-HOMOGLYPHS = "dclI1O0S5Z2rnm"
+HOMOGLYPHS = "dclI1B8O0S5Z2rnm"
 SYSRAND = random.SystemRandom()
 DEFAULT = {
     "length": 40,
