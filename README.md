@@ -21,7 +21,7 @@ Caractéristiques
 
 -   source d'entropie : uniquement celle du système
 
--   option pour éviter les caractères homoglyphes (``dclI1O0S5Z2rnm``)
+-   option pour éviter les caractères homoglyphes (``dclI1B8O0S5Z2rnm``)
 
 Utilisation
 -----------
@@ -65,7 +65,7 @@ Features
 
 -   entropy source: the one of the system only
 
--   option to avoid homoglyph characters (``dclI1O0S5Z2rnm``)
+-   option to avoid homoglyph characters (``dclI1B8O0S5Z2rnm``)
 
 Use
 ---
