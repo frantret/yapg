@@ -92,9 +92,9 @@ def build_pwd(List, **kwargs):
         except ValueError:
             return "Error: the length must be an integer."
     try:
-        assert Length >= 0
+        assert Length > 0
     except AssertionError:
-        return "Error: the length must be positive."
+        return "Error: the length must be strictly positive."
     try:
         assert List
     except AssertionError:
