@@ -42,7 +42,7 @@ Use
 License
 -------
 
-3-clause BSD-type license---see [LICENSE.md][1].
+3-clause BSD-type license---see [`LICENSE.md`][1].
 
 ------------------------------------------------------------------------
 
@@ -86,6 +86,6 @@ Utilisation
 Licence
 -------
 
-Licence de type BSD avec 3 clauses -- voir [LICENSE.md][1].
+Licence de type BSD avec 3 clauses -- voir [`LICENSE.md`][1].
 
 [1]: LICENSE.md
