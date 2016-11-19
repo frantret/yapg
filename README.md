@@ -18,9 +18,7 @@ Features
 --------
 
 -   multi-platform
-
 -   entropy source: the one of the system only
-
 -   option to avoid homoglyph characters (``dclI1B8O0S5Z2rnm``)
 
 Use
@@ -64,9 +62,7 @@ Caractéristiques
 ----------------
 
 -   multi-plateforme
-
 -   source d'entropie : uniquement celle du système
-
 -   option pour éviter les caractères homoglyphes (``dclI1B8O0S5Z2rnm``)
 
 Utilisation
