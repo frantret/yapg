@@ -46,6 +46,8 @@ License
 
 3-clause BSD-type license---see [LICENSE.md][1].
 
+------------------------------------------------------------------------
+
 yapg : encore un générateur de mots de passe
 ============================================
 
