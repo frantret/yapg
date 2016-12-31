@@ -67,6 +67,7 @@ class PasswordGenerator(Window):
         self.TkSettings["uppercase"] = tk.BooleanVar()
         self.TkSettings["punctuation"] = tk.BooleanVar()
         self.TkSettings["homoglyphs"] = tk.BooleanVar()
+        self.TkSettings["compatible"] = tk.BooleanVar()
         for Key in self.TkSettings.keys():
             self.TkSettings[Key].set(self.DicSettings[Key])
         self.VarList = tk.StringVar()
@@ -105,6 +106,11 @@ class PasswordGenerator(Window):
             text=yapg.HELP["homoglyphs"],
             variable=self.TkSettings["homoglyphs"]
         )
+        ButCompatible = ttk.Checkbutton(
+            self,
+            text=yapg.HELP["compatible"],
+            variable=self.TkSettings["compatible"]
+        )
         ButAbout = ttk.Button(
             self,
             text="about",
@@ -130,10 +136,11 @@ class PasswordGenerator(Window):
         ButUppercase.grid(row=3, column=1, sticky=(tk.W, tk.E))
         ButPunctuation.grid(row=4, column=1, sticky=(tk.W, tk.E))
         ButHomoglyphs.grid(row=5, column=1, sticky=(tk.W, tk.E))
-        ButAbout.grid(row=5, column=2, sticky=tk.E)
-        ButGenerate.grid(row=6, column=0, sticky=tk.W)
-        TxtPassword.grid(row=6, column=1, sticky=(tk.W, tk.E))
-        ButCopy.grid(row=6, column=2, sticky=tk.E)
+        ButCompatible.grid(row=6, column=1, sticky=(tk.W, tk.E))
+        ButAbout.grid(row=6, column=2, sticky=tk.E)
+        ButGenerate.grid(row=7, column=0, sticky=tk.W)
+        TxtPassword.grid(row=7, column=1, sticky=(tk.W, tk.E))
+        ButCopy.grid(row=7, column=2, sticky=tk.E)
         self.give_space()
         # Gives focus to the entry field.
         LengthEnt.focus()

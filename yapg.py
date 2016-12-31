@@ -14,6 +14,9 @@ import string
 
 
 HOMOGLYPHS = "dclI1B8O0S5Z2rnm"
+ERTYCOM = "bcdefghijklnoprstuvxy"
+ERTYCOMMON = set(ERTYCOM)
+ERTYCOMMON.update(ERTYCOM.upper())
 SYSRAND = random.SystemRandom()
 DEFAULT = {
     "length": 40,
@@ -22,6 +25,7 @@ DEFAULT = {
     "uppercase": True,
     "punctuation": False,
     "homoglyphs": True,
+    "compatible": False,
 }
 HELP = {
     "length": "number of characters",
@@ -30,6 +34,7 @@ HELP = {
     "uppercase": "allow uppercase letters",
     "punctuation": "allow punctuation",
     "homoglyphs": "allow characters potentially confused ({})".format(HOMOGLYPHS),
+    "compatible": "only allow characters common between QWERTY and AZERTY layouts",
 }
 
 
@@ -49,6 +54,8 @@ def build_list(**kwargs):
     if not kwargs.get("homoglyphs"):
         for m in HOMOGLYPHS:
             Set.discard(m)
+    if kwargs.get("compatible"):
+        Set = Set.intersection(ERTYCOMMON)
     return "".join(Set)
 
 
@@ -151,5 +158,9 @@ if __name__ == "__main__":
     Parser.add_argument(
         "-m", "--homoglyphs", action="store_true",
         help=HELP["homoglyphs"]
+    )
+    Parser.add_argument(
+        "-c", "--compatible", action="store_true",
+        help=HELP["compatible"]
     )
     print(main(**vars(Parser.parse_args())))
