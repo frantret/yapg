@@ -20,6 +20,7 @@ Features
 -   multi-platform
 -   entropy source: the one of the system only
 -   option to avoid homoglyph characters (`dclI1B8O0S5Z2rnm`)
+-   option to use only characters common to QWERTY and AZERTY layouts (`bcdefghijklnoprstuvxy`)
 
 Use
 ---
@@ -64,6 +65,7 @@ Caractéristiques
 -   multi-plateforme
 -   source d'entropie : uniquement celle du système
 -   option pour éviter les caractères homoglyphes (`dclI1B8O0S5Z2rnm`)
+-   option pour n'utiliser que les caractères communs aux dispositions QWERTY et AZERTY (`bcdefghijklnoprstuvxy`)
 
 Utilisation
 -----------
