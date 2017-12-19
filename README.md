@@ -41,6 +41,4 @@ Use
 License
 -------
 
-3-clause BSD-type license---see [`LICENSE.md`][1].
-
-[1]: LICENSE.md
+[3-clause BSD-type](LICENSE.md).
