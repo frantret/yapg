@@ -105,12 +105,10 @@ def main(**kwargs):
     # The following condition is for the command line interface to
     # generate a password even if no arguments for allowing characters
     # are given.
-    if not (
-        kwargs.get("digits") or
-        kwargs.get("lowercase") or
-        kwargs.get("uppercase") or
-        kwargs.get("punctuation")
-    ):
+    if not (kwargs.get("digits") or
+            kwargs.get("lowercase") or
+            kwargs.get("uppercase") or
+            kwargs.get("punctuation")):
         kwargs["digits"] = DEFAULT["digits"]
         kwargs["lowercase"] = DEFAULT["lowercase"]
         kwargs["uppercase"] = DEFAULT["uppercase"]
@@ -120,36 +118,20 @@ def main(**kwargs):
 
 
 if __name__ == "__main__":
-    Parser = argparse.ArgumentParser(
-        description=__doc__,
-        formatter_class=argparse.RawDescriptionHelpFormatter
-    )
-    Parser.add_argument(
-        "-l", "--length", type=int, default=DEFAULT["length"],
-        help=HELP["length"]
-    )
-    Parser.add_argument(
-        "-d", "--digits", action="store_true",
-        help=HELP["digits"]
-    )
-    Parser.add_argument(
-        "-w", "--lowercase", action="store_true",
-        help=HELP["lowercase"]
-    )
-    Parser.add_argument(
-        "-u", "--uppercase", action="store_true",
-        help=HELP["uppercase"]
-    )
-    Parser.add_argument(
-        "-p", "--punctuation", action="store_true",
-        help=HELP["punctuation"]
-    )
-    Parser.add_argument(
-        "-m", "--homoglyphs", action="store_true",
-        help=HELP["homoglyphs"]
-    )
-    Parser.add_argument(
-        "-c", "--compatible", action="store_true",
-        help=HELP["compatible"]
-    )
+    Parser = argparse.ArgumentParser(description=__doc__,
+        formatter_class=argparse.RawDescriptionHelpFormatter)
+    Parser.add_argument("-l", "--length", type=int,
+        default=DEFAULT["length"], help=HELP["length"])
+    Parser.add_argument("-d", "--digits", action="store_true",
+        help=HELP["digits"])
+    Parser.add_argument("-w", "--lowercase", action="store_true",
+        help=HELP["lowercase"])
+    Parser.add_argument("-u", "--uppercase", action="store_true",
+        help=HELP["uppercase"])
+    Parser.add_argument("-p", "--punctuation", action="store_true",
+        help=HELP["punctuation"])
+    Parser.add_argument("-m", "--homoglyphs", action="store_true",
+        help=HELP["homoglyphs"])
+    Parser.add_argument("-c", "--compatible", action="store_true",
+        help=HELP["compatible"])
     print(main(**vars(Parser.parse_args())))
