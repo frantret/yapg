@@ -2,9 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
-"""\
-yapg: yet another password generator
-"""
+"""yapg: yet another password generator"""
 
 
 import argparse
@@ -39,9 +37,7 @@ HELP = {
 
 
 def build_list(**kwargs):
-    """\
-    Builds the list of allowed characters.
-    """
+    """Builds the list of allowed characters."""
     Set = set()
     if kwargs.get("digits"):
         Set.update(string.digits)
@@ -60,24 +56,19 @@ def build_list(**kwargs):
 
 
 def gen_pwd_cand(List, Length):
-    """\
-    Generates one password candidate.
-    """
+    """Generates one password candidate."""
     return "".join(SYSRAND.choice(List) for _ in range(Length))
 
 
 def entropy(String):
-    """\
-    Calculates the Shannon entropy of a string.
-    """
+    """Calculates the Shannon entropy of a string."""
     Prob = (float(String.count(c)) / len(String) for c in set(String))
     return - sum(p * math.log(p) / math.log(2.0) for p in Prob)
 
 
 def gen_pwd(List, Length):
-    """\
-    Selects one password for its relative higher entropy, amongst a set
-    of password candidates.
+    """Selects one password for its relative higher entropy, amongst a
+    set of password candidates.
     """
     Candidates = (gen_pwd_cand(List, Length) for _ in range(100))
     Entropies = {c: entropy(c) for c in Candidates}
@@ -87,9 +78,7 @@ def gen_pwd(List, Length):
 
 
 def build_pwd(List, **kwargs):
-    """\
-    Builds a password.
-    """
+    """Builds a password."""
     Length = kwargs.get("length", DEFAULT["length"])
     try:
         assert isinstance(Length, int)
@@ -110,9 +99,7 @@ def build_pwd(List, **kwargs):
 
 
 def main(**kwargs):
-    """\
-    Main function.
-    """
+    """Main function."""
     # The following condition is for the command line interface to
     # generate a password even if no arguments for allowing characters
     # are given.

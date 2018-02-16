@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
-"""\
-gyapg: graphical user interface for yapg (yet another password \
+"""gyapg: graphical user interface for yapg (yet another password \
 generator)
 """
 
@@ -14,9 +13,7 @@ from tkinter import ttk
 
 
 class Window(tk.Tk):
-    """\
-    Builds a basic window.
-    """
+    """Builds a basic window."""
 
     def __init__(self, title):
         super().__init__()
@@ -25,17 +22,13 @@ class Window(tk.Tk):
         self.bind("<Escape>", lambda e: self.destroy())
 
     def give_space(self):
-        """\
-        Gives some padding around all the elements.
-        """
+        """Gives some padding around all the elements."""
         for Child in self.winfo_children():
             Child.grid_configure(padx=5, pady=5)
 
 
 class About(Window):
-    """\
-    Builds an "about" window.
-    """
+    """Builds an "about" window."""
 
     def __init__(self):
         super().__init__("About gyapg")
@@ -50,9 +43,7 @@ class About(Window):
 
 
 class PasswordGenerator(Window):
-    """\
-    Builds the main password generator window.
-    """
+    """Builds the main password generator window."""
 
     def __init__(self):
         super().__init__("gyapg")
@@ -150,16 +141,12 @@ class PasswordGenerator(Window):
         self.bind("<Control-c>", self.copy)
 
     def build_about(self, *args):
-        """\
-        Builds an "about" window.
-        """
+        """Builds an "about" window."""
         self.AboutWin = About()
         self.AboutWin.mainloop()
 
     def generate(self, *args):
-        """\
-        Generates a password and assigns it.
-        """
+        """Generates a password and assigns it."""
         # Transfers GUI settings to the operational dictionary.
         self.DicSettings = dict()
         for k in self.TkSettings.keys():
@@ -174,9 +161,7 @@ class PasswordGenerator(Window):
         )
 
     def copy(self, *args):
-        """\
-        Copies the password to the clipboard.
-        """
+        """Copies the password to the clipboard."""
         Password = self.VarPassword.get()
         if Password and not Password.lower().startswith("error"):
             self.clipboard_clear()
