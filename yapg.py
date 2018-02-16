@@ -117,7 +117,8 @@ def main(**kwargs):
     return build_pwd(List, **kwargs)
 
 
-if __name__ == "__main__":
+def cli():
+    """Command-line interface function."""
     Parser = argparse.ArgumentParser(description=__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter)
     Parser.add_argument("-l", "--length", type=int,
@@ -134,4 +135,9 @@ if __name__ == "__main__":
         help=HELP["homoglyphs"])
     Parser.add_argument("-c", "--compatible", action="store_true",
         help=HELP["compatible"])
-    print(main(**vars(Parser.parse_args())))
+    return vars(Parser.parse_args())
+
+
+if __name__ == "__main__":
+    kwargs = cli()
+    print(main(**kwargs))
