@@ -15,7 +15,7 @@ HOMOGLYPHS = "dclI1B8O0S5Z2rnm"
 ERTYCOM = "bcdefghijklnoprstuvxy"
 ERTYCOMMON = set(ERTYCOM)
 ERTYCOMMON.update(ERTYCOM.upper())
-NB_CAND = 100
+NB_CAND = 10
 SYSRAND = random.SystemRandom()
 DEFAULT = {
     "length": "30-40",
