@@ -15,6 +15,7 @@ HOMOGLYPHS = "dclI1B8O0S5Z2rnm"
 ERTYCOM = "bcdefghijklnoprstuvxy"
 ERTYCOMMON = set(ERTYCOM)
 ERTYCOMMON.update(ERTYCOM.upper())
+NB_CAND = 100
 SYSRAND = random.SystemRandom()
 DEFAULT = {
     "length": "30-40",
@@ -73,7 +74,7 @@ def gen_pwd(List, LenMin, LenMax):
     """Selects one password for its relative higher entropy, amongst a
     set of password candidates.
     """
-    Candidates = (gen_pwd_cand(List, LenMin, LenMax) for _ in range(100))
+    Candidates = (gen_pwd_cand(List, LenMin, LenMax) for _ in range(NB_CAND))
     Entropies = {c: entropy(c) for c in Candidates}
     MaxEnt = max(Entropies.values())
     Strongest = tuple(c for c in Entropies if Entropies[c] == MaxEnt)
