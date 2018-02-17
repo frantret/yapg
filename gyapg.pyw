@@ -105,6 +105,8 @@ class PasswordGenerator(Window):
         self.bind("<F1>", self.build_about)
         self.bind("<Return>", self.generate)
         self.bind("<Control-c>", self.copy)
+        # Builds the list of allowed characters.
+        self.VarList.set(yapg.build_list(**self.DicSettings))
 
     def build_about(self, *args):
         """Builds an "about" window."""
