@@ -17,7 +17,7 @@ ERTYCOMMON = set(ERTYCOM)
 ERTYCOMMON.update(ERTYCOM.upper())
 SYSRAND = random.SystemRandom()
 DEFAULT = {
-    "length": 40,
+    "length": "30-40",
     "digits": True,
     "lowercase": True,
     "uppercase": True,
@@ -26,7 +26,7 @@ DEFAULT = {
     "compatible": False,
 }
 HELP = {
-    "length": "number of characters",
+    "length": "number of characters (can be random: min-max)",
     "digits": "allow digits",
     "lowercase": "allow lowercase letters",
     "uppercase": "allow uppercase letters",
@@ -57,9 +57,10 @@ def build_list(**kwargs):
     return "".join(Set)
 
 
-def gen_pwd_cand(List, Length):
+def gen_pwd_cand(List, LenMin, LenMax):
     """Generates one password candidate."""
-    return "".join(SYSRAND.choice(List) for _ in range(Length))
+    return "".join(SYSRAND.choice(List)
+                   for _ in range(SYSRAND.choice(range(LenMin, LenMax + 1))))
 
 
 def entropy(String):
@@ -68,11 +69,11 @@ def entropy(String):
     return - sum(p * math.log(p) / math.log(2.0) for p in Prob)
 
 
-def gen_pwd(List, Length):
+def gen_pwd(List, LenMin, LenMax):
     """Selects one password for its relative higher entropy, amongst a
     set of password candidates.
     """
-    Candidates = (gen_pwd_cand(List, Length) for _ in range(100))
+    Candidates = (gen_pwd_cand(List, LenMin, LenMax) for _ in range(100))
     Entropies = {c: entropy(c) for c in Candidates}
     MaxEnt = max(Entropies.values())
     Strongest = tuple(c for c in Entropies if Entropies[c] == MaxEnt)
@@ -81,23 +82,27 @@ def gen_pwd(List, Length):
 
 def build_pwd(List, **kwargs):
     """Builds a password."""
-    Length = kwargs.get("length", DEFAULT["length"])
+    Length = kwargs.get("length", DEFAULT["length"]).strip().strip(" -")
     try:
-        assert isinstance(Length, int)
-    except AssertionError:
-        try:
-            Length = int(Length)
-        except ValueError:
-            return "Error: the length must be an integer."
+        Len1, Len2 = Length.split("-")
+    except ValueError:
+        Len1 = Len2 = Length
     try:
-        assert Length > 0
+        Len1 = int(Len1)
+        Len2 = int(Len2)
+    except ValueError:
+        return "Error: the length(s) must be one or two integer(s)."
+    LenMin = min(Len1, Len2)
+    LenMax = max(Len1, Len2)
+    try:
+        assert 0 < LenMin <= LenMax
     except AssertionError:
-        return "Error: the length must be strictly positive."
+        return "Error: the length(s) must be striclty positive."
     try:
         assert List
     except AssertionError:
         return "Error: the set of allowed characters is empty."
-    return gen_pwd(List, Length)
+    return gen_pwd(List, LenMin, LenMax)
 
 
 def main(**kwargs):
@@ -121,7 +126,7 @@ def cli():
     """Command-line interface function."""
     Parser = argparse.ArgumentParser(description=__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter)
-    Parser.add_argument("-l", "--length", type=int,
+    Parser.add_argument("-l", "--length", type=str,
         default=DEFAULT["length"], help=HELP["length"])
     Parser.add_argument("-d", "--digits", action="store_true",
         help=HELP["digits"])

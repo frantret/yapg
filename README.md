@@ -17,6 +17,7 @@ Features
 
 -   multi-platform
 -   entropy source: the one of the system only
+-   password's length is random
 -   option to avoid homoglyph characters (`dclI1B8O0S5Z2rnm`)
 -   option to use only characters common to QWERTY and AZERTY layouts (`bcdefghijklnoprstuvxy`)
 
