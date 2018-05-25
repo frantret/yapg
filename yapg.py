@@ -98,7 +98,7 @@ def build_pwd(List, **kwargs):
     try:
         assert 0 < LenMin <= LenMax
     except AssertionError:
-        return "Error: the length(s) must be striclty positive."
+        return "Error: the length(s) must be strictly positive."
     try:
         assert List
     except AssertionError:
