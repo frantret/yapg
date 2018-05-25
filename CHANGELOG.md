@@ -1,12 +1,6 @@
 # Changelog
 
-## x.x.x
-
-### New
-
-
-### Change
-
+## 0.2.2: PEP8 and other minor changes (25 May 2018)
 
 ### Fix
 
