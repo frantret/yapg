@@ -1,11 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
-
 """gyapg: graphical user interface for yapg (yet another password \
 generator)
 """
-
 
 import yapg
 import tkinter as tk
@@ -65,20 +62,33 @@ class PasswordGenerator(Window):
         self.VarPassword = tk.StringVar()
         # Sets the grid elements.
         TxtLength = ttk.Label(self, text="length:")
-        LengthEnt = ttk.Entry(self, textvariable=self.TkSettings["length"],
-            foreground='black', background='white')
+        LengthEnt = ttk.Entry(
+            self,
+            textvariable=self.TkSettings["length"],
+            foreground='black',
+            background='white')
         TxtChars = ttk.Label(self, text="characters")
-        ButDigits = ttk.Checkbutton(self, text=yapg.HELP["digits"],
-            variable=self.TkSettings["digits"])
-        ButLowercase = ttk.Checkbutton(self, text=yapg.HELP["lowercase"],
+        ButDigits = ttk.Checkbutton(
+            self, text=yapg.HELP["digits"], variable=self.TkSettings["digits"])
+        ButLowercase = ttk.Checkbutton(
+            self,
+            text=yapg.HELP["lowercase"],
             variable=self.TkSettings["lowercase"])
-        ButUppercase = ttk.Checkbutton(self, text=yapg.HELP["uppercase"],
+        ButUppercase = ttk.Checkbutton(
+            self,
+            text=yapg.HELP["uppercase"],
             variable=self.TkSettings["uppercase"])
-        ButPunctuation = ttk.Checkbutton(self, text=yapg.HELP["punctuation"],
+        ButPunctuation = ttk.Checkbutton(
+            self,
+            text=yapg.HELP["punctuation"],
             variable=self.TkSettings["punctuation"])
-        ButHomoglyphs = ttk.Checkbutton(self, text=yapg.HELP["homoglyphs"],
+        ButHomoglyphs = ttk.Checkbutton(
+            self,
+            text=yapg.HELP["homoglyphs"],
             variable=self.TkSettings["homoglyphs"])
-        ButCompatible = ttk.Checkbutton(self, text=yapg.HELP["compatible"],
+        ButCompatible = ttk.Checkbutton(
+            self,
+            text=yapg.HELP["compatible"],
             variable=self.TkSettings["compatible"])
         ButAbout = ttk.Button(self, text="about", command=self.build_about)
         ButGenerate = ttk.Button(self, text="generate", command=self.generate)
@@ -124,8 +134,8 @@ class PasswordGenerator(Window):
             self.TempSettings = self.DicSettings
             self.VarList.set(yapg.build_list(**self.DicSettings))
         # Builds a new password.
-        self.VarPassword.set(yapg.build_pwd(self.VarList.get(),
-                                            **self.DicSettings))
+        self.VarPassword.set(
+            yapg.build_pwd(self.VarList.get(), **self.DicSettings))
 
     def copy(self, *args):
         """Copies the password to the clipboard."""

@@ -1,15 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
-
 """yapg: yet another password generator"""
-
 
 import argparse
 import math
 import random
 import string
-
 
 HOMOGLYPHS = "dclI1B8O0S5Z2rnm"
 ERTYCOM = "bcdefghijklnoprstuvxy"
@@ -27,15 +23,21 @@ DEFAULT = {
     "compatible": False,
 }
 HELP = {
-    "length": "number of characters (can be random: min-max)",
-    "digits": "allow digits",
-    "lowercase": "allow lowercase letters",
-    "uppercase": "allow uppercase letters",
-    "punctuation": "allow punctuation",
-    "homoglyphs": "allow characters potentially confused ({})"
-                  .format(HOMOGLYPHS),
-    "compatible": "only allow characters common between QWERTY and AZERTY "
-                  "layouts ({})".format(ERTYCOM),
+    "length":
+    "number of characters (can be random: min-max)",
+    "digits":
+    "allow digits",
+    "lowercase":
+    "allow lowercase letters",
+    "uppercase":
+    "allow uppercase letters",
+    "punctuation":
+    "allow punctuation",
+    "homoglyphs":
+    "allow characters potentially confused ({})".format(HOMOGLYPHS),
+    "compatible":
+    "only allow characters common between QWERTY and AZERTY layouts ({})"
+    .format(ERTYCOM),
 }
 
 
@@ -60,14 +62,15 @@ def build_list(**kwargs):
 
 def gen_pwd_cand(List, LenMin, LenMax):
     """Generates one password candidate."""
-    return "".join(SYSRAND.choice(List)
-                   for _ in range(SYSRAND.choice(range(LenMin, LenMax + 1))))
+    return "".join(
+        SYSRAND.choice(List)
+        for _ in range(SYSRAND.choice(range(LenMin, LenMax + 1))))
 
 
 def entropy(String):
     """Calculates the Shannon entropy of a string."""
     Prob = (float(String.count(c)) / len(String) for c in set(String))
-    return - sum(p * math.log(p) / math.log(2.0) for p in Prob)
+    return -sum(p * math.log(p) / math.log(2.0) for p in Prob)
 
 
 def gen_pwd(List, LenMin, LenMax):
@@ -111,10 +114,8 @@ def main(**kwargs):
     # The following condition is for the command line interface to
     # generate a password even if no arguments for allowing characters
     # are given.
-    if not (kwargs.get("digits") or
-            kwargs.get("lowercase") or
-            kwargs.get("uppercase") or
-            kwargs.get("punctuation")):
+    if not (kwargs.get("digits") or kwargs.get("lowercase")
+            or kwargs.get("uppercase") or kwargs.get("punctuation")):
         kwargs["digits"] = DEFAULT["digits"]
         kwargs["lowercase"] = DEFAULT["lowercase"]
         kwargs["uppercase"] = DEFAULT["uppercase"]
@@ -125,22 +126,27 @@ def main(**kwargs):
 
 def cli():
     """Command-line interface function."""
-    Parser = argparse.ArgumentParser(description=__doc__,
+    Parser = argparse.ArgumentParser(
+        description=__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter)
-    Parser.add_argument("-l", "--length", type=str,
-        default=DEFAULT["length"], help=HELP["length"])
-    Parser.add_argument("-d", "--digits", action="store_true",
-        help=HELP["digits"])
-    Parser.add_argument("-w", "--lowercase", action="store_true",
-        help=HELP["lowercase"])
-    Parser.add_argument("-u", "--uppercase", action="store_true",
-        help=HELP["uppercase"])
-    Parser.add_argument("-p", "--punctuation", action="store_true",
-        help=HELP["punctuation"])
-    Parser.add_argument("-m", "--homoglyphs", action="store_true",
-        help=HELP["homoglyphs"])
-    Parser.add_argument("-c", "--compatible", action="store_true",
-        help=HELP["compatible"])
+    Parser.add_argument(
+        "-l",
+        "--length",
+        type=str,
+        default=DEFAULT["length"],
+        help=HELP["length"])
+    Parser.add_argument(
+        "-d", "--digits", action="store_true", help=HELP["digits"])
+    Parser.add_argument(
+        "-w", "--lowercase", action="store_true", help=HELP["lowercase"])
+    Parser.add_argument(
+        "-u", "--uppercase", action="store_true", help=HELP["uppercase"])
+    Parser.add_argument(
+        "-p", "--punctuation", action="store_true", help=HELP["punctuation"])
+    Parser.add_argument(
+        "-m", "--homoglyphs", action="store_true", help=HELP["homoglyphs"])
+    Parser.add_argument(
+        "-c", "--compatible", action="store_true", help=HELP["compatible"])
     return vars(Parser.parse_args())
 
 

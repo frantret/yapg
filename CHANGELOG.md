@@ -10,6 +10,7 @@
 
 ### Fix
 
+-   Applied PEP8 with `yapf`.
 
 ## 0.2.1: Gui fixed (17 February 2018)
 
