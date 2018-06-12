@@ -4,9 +4,10 @@
 generator)
 """
 
-import yapg
 import tkinter as tk
 from tkinter import ttk
+
+import yapg
 
 
 class Window(tk.Tk):
