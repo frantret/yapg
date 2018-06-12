@@ -1,5 +1,11 @@
 # Changelog
 
+## x.x.x
+
+### New
+
+-   Added [.editorconfig](https://editorconfig.org/) file.
+
 ## 0.2.2: PEP8 and other minor changes (25 May 2018)
 
 ### Fix
