@@ -66,31 +66,28 @@ class PasswordGenerator(Window):
         LengthEnt = ttk.Entry(
             self,
             textvariable=self.TkSettings["length"],
-            foreground='black',
-            background='white')
+            foreground="black",
+            background="white",
+        )
         TxtChars = ttk.Label(self, text=yapg.HELP_CHARS)
         ButDigits = ttk.Checkbutton(
-            self, text=yapg.HELP["digits"], variable=self.TkSettings["digits"])
+            self, text=yapg.HELP["digits"], variable=self.TkSettings["digits"]
+        )
         ButLowercase = ttk.Checkbutton(
-            self,
-            text=yapg.HELP["lowercase"],
-            variable=self.TkSettings["lowercase"])
+            self, text=yapg.HELP["lowercase"], variable=self.TkSettings["lowercase"]
+        )
         ButUppercase = ttk.Checkbutton(
-            self,
-            text=yapg.HELP["uppercase"],
-            variable=self.TkSettings["uppercase"])
+            self, text=yapg.HELP["uppercase"], variable=self.TkSettings["uppercase"]
+        )
         ButPunctuation = ttk.Checkbutton(
-            self,
-            text=yapg.HELP["punctuation"],
-            variable=self.TkSettings["punctuation"])
+            self, text=yapg.HELP["punctuation"], variable=self.TkSettings["punctuation"]
+        )
         ButHomoglyphs = ttk.Checkbutton(
-            self,
-            text=yapg.HELP["homoglyphs"],
-            variable=self.TkSettings["homoglyphs"])
+            self, text=yapg.HELP["homoglyphs"], variable=self.TkSettings["homoglyphs"]
+        )
         ButCompatible = ttk.Checkbutton(
-            self,
-            text=yapg.HELP["compatible"],
-            variable=self.TkSettings["compatible"])
+            self, text=yapg.HELP["compatible"], variable=self.TkSettings["compatible"]
+        )
         ButAbout = ttk.Button(self, text="about", command=self.build_about)
         ButGenerate = ttk.Button(self, text="generate", command=self.generate)
         TxtPassword = ttk.Label(self, textvariable=self.VarPassword)
@@ -135,8 +132,7 @@ class PasswordGenerator(Window):
             self.TempSettings = self.DicSettings
             self.VarList.set(yapg.build_list(**self.DicSettings))
         # Builds a new password.
-        self.VarPassword.set(
-            yapg.build_pwd(self.VarList.get(), **self.DicSettings))
+        self.VarPassword.set(yapg.build_pwd(self.VarList.get(), **self.DicSettings))
 
     def copy(self, *args):
         """Copies the password to the clipboard."""

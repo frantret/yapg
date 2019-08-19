@@ -12,6 +12,7 @@
     -   Markdown: removed useless encoding hints.
 -   Fix
     -   Sorted imports with `isort`.
+    -   Applied PEP8 with `black`.
 -   Security
 
 ## 0.2.2: PEP8 and other minor changes (25 May 2018)
