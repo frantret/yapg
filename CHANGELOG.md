@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.4-dev: *summary* (unreleased)
+
+-   New
+-   Change
+-   Deprecate
+-   Remove
+-   Fix
+-   Security
+
 ## 0.2.3: Apply Black and Pylint (19 August 2019)
 
 -   New
