@@ -116,8 +116,13 @@ class PasswordGenerator(Window):
         # Builds the list of allowed characters.
         self.var_list.set(yapg.build_list(**self.cfg_dic))
 
+    # In the following methods, Pylint complains "W0613: Unused argument 'args'",
+    # but it is required by Tkinter.
+
     def build_about(self, *args):
         """Builds an "about" window."""
+        # Pylint complains "W0201: Attribute 'win_about' defined outside __init__",
+        # but moving the following line to init breaks the child window behavior.
         self.win_about = About()
         self.win_about.mainloop()
 
