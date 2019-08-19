@@ -5,7 +5,7 @@ yapg is a simple password generator.
 ## Dependencies
 
 It is implemented in Python. Its only dependency is a basic Python
-installation. More specifically: Python 3.4 or above, and Python-TK for
+installation. More specifically: Python 3.6 or above, and Python-TK for
 the graphical interface.
 
 ## Features

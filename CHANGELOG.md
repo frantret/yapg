@@ -7,6 +7,7 @@
 -   Deprecate
 -   Remove
 -   Fix
+    -   Readme: f-strings were introduced in Python 3.6.
 -   Security
 
 ## 0.2.3: Apply Black and Pylint (19 August 2019)
