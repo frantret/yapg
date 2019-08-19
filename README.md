@@ -1,17 +1,14 @@
-yapg: yet another password generator
-====================================
+# yapg: yet another password generator
 
 yapg is a simple password generator.
 
-Dependencies
-------------
+## Dependencies
 
 It is implemented in Python. Its only dependency is a basic Python
 installation. More specifically: Python 3.4 or above, and Python-TK for
 the graphical interface.
 
-Features
---------
+## Features
 
 -   multi-platform
 -   entropy source: the one of the system only
@@ -19,8 +16,7 @@ Features
 -   option to avoid homoglyph characters (`dclI1B8O0S5Z2rnm`)
 -   option to use only characters common to QWERTY and AZERTY layouts (`bcdefghijklnoprstuvxy`)
 
-Use
----
+## Use
 
 -   for a command line interface (with no options, it yields a password
     with default options):
@@ -37,7 +33,6 @@ Use
     ./gyapg.pyw
     ```
 
-License
--------
+## License
 
 [3-clause BSD-type](LICENSE.md).

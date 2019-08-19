@@ -8,6 +8,7 @@
 -   Change
     -   GUI: propagated help text for random length.
     -   Replaced `.format()` by f-strings.
+    -   Markdown / readme: use ATX-style headers.
 -   Deprecate
 -   Remove
     -   Markdown: removed useless encoding hints.
