@@ -6,10 +6,13 @@
     -   Added [.editorconfig](https://editorconfig.org/) file.
     -   Added development requirements file.
 -   Change
-    -   Markdown: removed useless encoding hints.
     -   GUI: propagated help text for random length.
+-   Deprecate
+-   Remove
+    -   Markdown: removed useless encoding hints.
 -   Fix
     -   Sorted imports with `isort`.
+-   Security
 
 ## 0.2.2: PEP8 and other minor changes (25 May 2018)
 
