@@ -1,5 +1,3 @@
-<!-- -*- coding: utf-8 -*- -->
-
 yapg: yet another password generator
 ====================================
 

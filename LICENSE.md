@@ -1,5 +1,3 @@
-<!-- -*- coding: utf-8 -*- -->
-
 Copyright (c) 2015-2018, Frantret (https://framagit.org/frantret).
 
 All rights reserved.

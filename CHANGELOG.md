@@ -6,6 +6,10 @@
 
 -   Added [.editorconfig](https://editorconfig.org/) file.
 
+### Change
+
+-   Markdown: removed useless encoding hints.
+
 ### Fix
 
 -   Sorted imports with `isort`.
