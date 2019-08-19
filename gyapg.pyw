@@ -57,7 +57,7 @@ class PasswordGenerator(Window):
         self.cfg_tk["punctuation"] = tk.BooleanVar()
         self.cfg_tk["homoglyphs"] = tk.BooleanVar()
         self.cfg_tk["compatible"] = tk.BooleanVar()
-        for config_item in self.cfg_tk.keys():
+        for config_item in self.cfg_tk:
             self.cfg_tk[config_item].set(self.cfg_dic[config_item])
         self.var_list = tk.StringVar()
         self.var_pwd = tk.StringVar()
@@ -125,7 +125,7 @@ class PasswordGenerator(Window):
         """Generates a password and assigns it."""
         # Transfers GUI settings to the operational dictionary.
         self.cfg_dic = dict()
-        for config_item in self.cfg_tk.keys():
+        for config_item in self.cfg_tk:
             self.cfg_dic[config_item] = self.cfg_tk[config_item].get()
         # If there is any change in the settings, re-builds the list.
         if self.cfg_tmp != self.cfg_dic:
