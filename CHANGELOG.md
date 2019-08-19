@@ -5,6 +5,7 @@
 ### New
 
 -   Added [.editorconfig](https://editorconfig.org/) file.
+-   Added development requirements file.
 
 ### Change
 
