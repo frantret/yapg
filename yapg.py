@@ -29,10 +29,8 @@ HELP = {
     "lowercase": "allow lowercase letters",
     "uppercase": "allow uppercase letters",
     "punctuation": "allow punctuation",
-    "homoglyphs": "allow characters potentially confused ({})".format(HOMOGLYPHS),
-    "compatible": "only allow characters common between QWERTY and AZERTY layouts ({})".format(
-        ERTYCOM
-    ),
+    "homoglyphs": f"allow characters potentially confused ({HOMOGLYPHS})",
+    "compatible": f"only allow characters common between QWERTY and AZERTY layouts ({ERTYCOM})",
 }
 
 

@@ -7,6 +7,7 @@
     -   Added development requirements file.
 -   Change
     -   GUI: propagated help text for random length.
+    -   Replaced `.format()` by f-strings.
 -   Deprecate
 -   Remove
     -   Markdown: removed useless encoding hints.
