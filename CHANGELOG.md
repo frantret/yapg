@@ -15,6 +15,7 @@
 -   Deprecate
 -   Remove
     -   Markdown: removed useless encoding hints.
+    -   CLI: removed useless parser option.
 -   Fix
     -   Sorted imports with `isort`.
     -   Applied PEP8 with `black`.
