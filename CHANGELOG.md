@@ -12,6 +12,7 @@
     -   Markdown / readme: use ATX-style headers.
     -   GUI: use monospaced font to display the password.
     -   CLI: the `cli()` function returns the parser.
+    -   Replaced `assert` statements by `if` conditions.
 -   Deprecate
 -   Remove
     -   Markdown: removed useless encoding hints.

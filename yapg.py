@@ -94,13 +94,9 @@ def build_pwd(chars, **kwargs):
         return "Error: the length(s) must be one or two integer(s)."
     len_min = min(len_1, len_2)
     len_max = max(len_1, len_2)
-    try:
-        assert 0 < len_min <= len_max
-    except AssertionError:
+    if not 0 < len_min <= len_max:
         return "Error: the length(s) must be strictly positive."
-    try:
-        assert chars
-    except AssertionError:
+    if not chars:
         return "Error: the set of allowed characters is empty."
     return gen_pwd(chars, len_min, len_max)
 
