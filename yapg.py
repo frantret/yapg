@@ -36,70 +36,71 @@ HELP = {
 
 def build_list(**kwargs):
     """Builds the list of allowed characters."""
-    Set = set()
+    chars = set()
     if kwargs.get("digits"):
-        Set.update(string.digits)
+        chars.update(string.digits)
     if kwargs.get("lowercase"):
-        Set.update(string.ascii_lowercase)
+        chars.update(string.ascii_lowercase)
     if kwargs.get("uppercase"):
-        Set.update(string.ascii_uppercase)
+        chars.update(string.ascii_uppercase)
     if kwargs.get("punctuation"):
-        Set.update(string.punctuation)
+        chars.update(string.punctuation)
     if not kwargs.get("homoglyphs"):
-        for m in HOMOGLYPHS:
-            Set.discard(m)
+        for homoglyph in HOMOGLYPHS:
+            chars.discard(homoglyph)
     if kwargs.get("compatible"):
-        Set = Set.intersection(ERTYCOMMON)
-    return "".join(Set)
+        chars = chars.intersection(ERTYCOMMON)
+    return "".join(chars)
 
 
-def gen_pwd_cand(List, LenMin, LenMax):
+def gen_pwd_cand(chars, len_min, len_max):
     """Generates one password candidate."""
     return "".join(
-        SYSRAND.choice(List) for _ in range(SYSRAND.choice(range(LenMin, LenMax + 1)))
+        SYSRAND.choice(chars)
+        for _ in range(SYSRAND.choice(range(len_min, len_max + 1)))
     )
 
 
-def entropy(String):
+def entropy(string_):
     """Calculates the Shannon entropy of a string."""
-    Prob = (float(String.count(c)) / len(String) for c in set(String))
-    return -sum(p * math.log(p) / math.log(2.0) for p in Prob)
+    probs = (float(string_.count(c)) / len(string_) for c in set(string_))
+    return -sum(p * math.log(p) / math.log(2.0) for p in probs)
 
 
-def gen_pwd(List, LenMin, LenMax):
+def gen_pwd(chars, len_min, len_max):
     """Selects one password for its relative higher entropy, amongst a
     set of password candidates.
     """
-    Candidates = (gen_pwd_cand(List, LenMin, LenMax) for _ in range(NB_CAND))
-    Entropies = {c: entropy(c) for c in Candidates}
-    MaxEnt = max(Entropies.values())
-    Strongest = tuple(c for c in Entropies if Entropies[c] == MaxEnt)
-    return SYSRAND.choice(Strongest)
+    candidates = (gen_pwd_cand(chars, len_min, len_max) for _ in range(NB_CAND))
+    entropies = {c: entropy(c) for c in candidates}
+    max_ent = max(entropies.values())
+    strongest = tuple(c for c in entropies if entropies[c] == max_ent)
+    return SYSRAND.choice(strongest)
 
 
-def build_pwd(List, **kwargs):
+def build_pwd(chars, **kwargs):
     """Builds a password."""
-    Length = kwargs.get("length", DEFAULT["length"]).strip().strip(" -")
+    length = kwargs.get("length", DEFAULT["length"]).strip().strip(" -")
     try:
-        Len1, Len2 = Length.split("-")
+        len_1, len_2 = length.split("-")
     except ValueError:
-        Len1 = Len2 = Length
+        len_1 = len_2 = length
     try:
-        Len1 = int(Len1)
-        Len2 = int(Len2)
+        len_1 = int(len_1)
+        len_2 = int(len_2)
     except ValueError:
         return "Error: the length(s) must be one or two integer(s)."
-    LenMin = min(Len1, Len2)
-    LenMax = max(Len1, Len2)
+    len_min = min(len_1, len_2)
+    len_max = max(len_1, len_2)
     try:
-        assert 0 < LenMin <= LenMax
+        assert 0 < len_min <= len_max
     except AssertionError:
         return "Error: the length(s) must be strictly positive."
     try:
-        assert List
+        assert chars
     except AssertionError:
         return "Error: the set of allowed characters is empty."
-    return gen_pwd(List, LenMin, LenMax)
+    return gen_pwd(chars, len_min, len_max)
 
 
 def main(**kwargs):
@@ -117,35 +118,35 @@ def main(**kwargs):
         kwargs["lowercase"] = DEFAULT["lowercase"]
         kwargs["uppercase"] = DEFAULT["uppercase"]
         kwargs["punctuation"] = DEFAULT["punctuation"]
-    List = build_list(**kwargs)
-    return build_pwd(List, **kwargs)
+    chars = build_list(**kwargs)
+    return build_pwd(chars, **kwargs)
 
 
 def cli():
     """Command-line interface function."""
-    Parser = argparse.ArgumentParser(
+    parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
     )
-    Parser.add_argument(
+    parser.add_argument(
         "-l", "--length", type=str, default=DEFAULT["length"], help=HELP["length"]
     )
-    Parser.add_argument("-d", "--digits", action="store_true", help=HELP["digits"])
-    Parser.add_argument(
+    parser.add_argument("-d", "--digits", action="store_true", help=HELP["digits"])
+    parser.add_argument(
         "-w", "--lowercase", action="store_true", help=HELP["lowercase"]
     )
-    Parser.add_argument(
+    parser.add_argument(
         "-u", "--uppercase", action="store_true", help=HELP["uppercase"]
     )
-    Parser.add_argument(
+    parser.add_argument(
         "-p", "--punctuation", action="store_true", help=HELP["punctuation"]
     )
-    Parser.add_argument(
+    parser.add_argument(
         "-m", "--homoglyphs", action="store_true", help=HELP["homoglyphs"]
     )
-    Parser.add_argument(
+    parser.add_argument(
         "-c", "--compatible", action="store_true", help=HELP["compatible"]
     )
-    return vars(Parser.parse_args())
+    return vars(parser.parse_args())
 
 
 if __name__ == "__main__":

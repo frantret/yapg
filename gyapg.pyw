@@ -21,8 +21,8 @@ class Window(tk.Tk):
 
     def give_space(self):
         """Gives some padding around all the elements."""
-        for Child in self.winfo_children():
-            Child.grid_configure(padx=5, pady=5)
+        for child in self.winfo_children():
+            child.grid_configure(padx=5, pady=5)
 
 
 class About(Window):
@@ -32,8 +32,8 @@ class About(Window):
         super().__init__("About gyapg")
         self.columnconfigure(0, weight=1)
         # Sets the grid.
-        TxtDoc = ttk.Label(self, text=__doc__.strip())
-        TxtDoc.grid(row=0, column=0, sticky=(tk.W, tk.E))
+        txt_doc = ttk.Label(self, text=__doc__.strip())
+        txt_doc.grid(row=0, column=0, sticky=(tk.W, tk.E))
         self.give_space()
         # Assigns closing the window to the return key and click.
         self.bind("<Return>", lambda e: self.destroy())
@@ -47,101 +47,101 @@ class PasswordGenerator(Window):
         super().__init__("gyapg")
         self.columnconfigure(1, weight=1)
         # Initializes the variables.
-        self.DicSettings = dict(yapg.DEFAULT)
-        self.TempSettings = dict(yapg.DEFAULT)
-        self.TkSettings = dict()
-        self.TkSettings["length"] = tk.StringVar()
-        self.TkSettings["digits"] = tk.BooleanVar()
-        self.TkSettings["lowercase"] = tk.BooleanVar()
-        self.TkSettings["uppercase"] = tk.BooleanVar()
-        self.TkSettings["punctuation"] = tk.BooleanVar()
-        self.TkSettings["homoglyphs"] = tk.BooleanVar()
-        self.TkSettings["compatible"] = tk.BooleanVar()
-        for Key in self.TkSettings.keys():
-            self.TkSettings[Key].set(self.DicSettings[Key])
-        self.VarList = tk.StringVar()
-        self.VarPassword = tk.StringVar()
+        self.cfg_dic = dict(yapg.DEFAULT)
+        self.cfg_tmp = dict(yapg.DEFAULT)
+        self.cfg_tk = dict()
+        self.cfg_tk["length"] = tk.StringVar()
+        self.cfg_tk["digits"] = tk.BooleanVar()
+        self.cfg_tk["lowercase"] = tk.BooleanVar()
+        self.cfg_tk["uppercase"] = tk.BooleanVar()
+        self.cfg_tk["punctuation"] = tk.BooleanVar()
+        self.cfg_tk["homoglyphs"] = tk.BooleanVar()
+        self.cfg_tk["compatible"] = tk.BooleanVar()
+        for config_item in self.cfg_tk.keys():
+            self.cfg_tk[config_item].set(self.cfg_dic[config_item])
+        self.var_list = tk.StringVar()
+        self.var_pwd = tk.StringVar()
         # Sets the grid elements.
-        TxtLength = ttk.Label(self, text="length:")
-        LengthEnt = ttk.Entry(
+        txt_length = ttk.Label(self, text="length:")
+        ent_length = ttk.Entry(
             self,
-            textvariable=self.TkSettings["length"],
+            textvariable=self.cfg_tk["length"],
             foreground="black",
             background="white",
         )
-        TxtChars = ttk.Label(self, text=yapg.HELP_CHARS)
-        ButDigits = ttk.Checkbutton(
-            self, text=yapg.HELP["digits"], variable=self.TkSettings["digits"]
+        txt_chars = ttk.Label(self, text=yapg.HELP_CHARS)
+        chk_digits = ttk.Checkbutton(
+            self, text=yapg.HELP["digits"], variable=self.cfg_tk["digits"]
         )
-        ButLowercase = ttk.Checkbutton(
-            self, text=yapg.HELP["lowercase"], variable=self.TkSettings["lowercase"]
+        chk_lowercase = ttk.Checkbutton(
+            self, text=yapg.HELP["lowercase"], variable=self.cfg_tk["lowercase"]
         )
-        ButUppercase = ttk.Checkbutton(
-            self, text=yapg.HELP["uppercase"], variable=self.TkSettings["uppercase"]
+        chk_uppercase = ttk.Checkbutton(
+            self, text=yapg.HELP["uppercase"], variable=self.cfg_tk["uppercase"]
         )
-        ButPunctuation = ttk.Checkbutton(
-            self, text=yapg.HELP["punctuation"], variable=self.TkSettings["punctuation"]
+        chk_punctuation = ttk.Checkbutton(
+            self, text=yapg.HELP["punctuation"], variable=self.cfg_tk["punctuation"]
         )
-        ButHomoglyphs = ttk.Checkbutton(
-            self, text=yapg.HELP["homoglyphs"], variable=self.TkSettings["homoglyphs"]
+        chk_homoglyphs = ttk.Checkbutton(
+            self, text=yapg.HELP["homoglyphs"], variable=self.cfg_tk["homoglyphs"]
         )
-        ButCompatible = ttk.Checkbutton(
-            self, text=yapg.HELP["compatible"], variable=self.TkSettings["compatible"]
+        chk_compatible = ttk.Checkbutton(
+            self, text=yapg.HELP["compatible"], variable=self.cfg_tk["compatible"]
         )
-        ButAbout = ttk.Button(self, text="about", command=self.build_about)
-        ButGenerate = ttk.Button(self, text="generate", command=self.generate)
-        TxtPassword = ttk.Label(self, textvariable=self.VarPassword)
-        ButCopy = ttk.Button(self, text="copy to clipboard", command=self.copy)
+        but_about = ttk.Button(self, text="about", command=self.build_about)
+        but_generate = ttk.Button(self, text="generate", command=self.generate)
+        txt_password = ttk.Label(self, textvariable=self.var_pwd)
+        but_copy = ttk.Button(self, text="copy to clipboard", command=self.copy)
         # Sets the grid layout.
-        TxtLength.grid(row=0, column=0, sticky=tk.W)
-        LengthEnt.grid(row=0, column=1, sticky=(tk.W, tk.E))
-        TxtChars.grid(row=0, column=2, sticky=tk.W)
-        ButDigits.grid(row=1, column=1, sticky=(tk.W, tk.E))
-        ButLowercase.grid(row=2, column=1, sticky=(tk.W, tk.E))
-        ButUppercase.grid(row=3, column=1, sticky=(tk.W, tk.E))
-        ButPunctuation.grid(row=4, column=1, sticky=(tk.W, tk.E))
-        ButHomoglyphs.grid(row=5, column=1, sticky=(tk.W, tk.E))
-        ButCompatible.grid(row=6, column=1, sticky=(tk.W, tk.E))
-        ButAbout.grid(row=6, column=2, sticky=tk.E)
-        ButGenerate.grid(row=7, column=0, sticky=tk.W)
-        TxtPassword.grid(row=7, column=1, sticky=(tk.W, tk.E))
-        ButCopy.grid(row=7, column=2, sticky=tk.E)
+        txt_length.grid(row=0, column=0, sticky=tk.W)
+        ent_length.grid(row=0, column=1, sticky=(tk.W, tk.E))
+        txt_chars.grid(row=0, column=2, sticky=tk.W)
+        chk_digits.grid(row=1, column=1, sticky=(tk.W, tk.E))
+        chk_lowercase.grid(row=2, column=1, sticky=(tk.W, tk.E))
+        chk_uppercase.grid(row=3, column=1, sticky=(tk.W, tk.E))
+        chk_punctuation.grid(row=4, column=1, sticky=(tk.W, tk.E))
+        chk_homoglyphs.grid(row=5, column=1, sticky=(tk.W, tk.E))
+        chk_compatible.grid(row=6, column=1, sticky=(tk.W, tk.E))
+        but_about.grid(row=6, column=2, sticky=tk.E)
+        but_generate.grid(row=7, column=0, sticky=tk.W)
+        txt_password.grid(row=7, column=1, sticky=(tk.W, tk.E))
+        but_copy.grid(row=7, column=2, sticky=tk.E)
         self.give_space()
         # Gives focus to the entry field.
-        LengthEnt.focus()
+        ent_length.focus()
         # Assigns the functions to keys (in addition to the buttons).
         self.bind("<F1>", self.build_about)
         self.bind("<Return>", self.generate)
         self.bind("<Control-c>", self.copy)
         # Builds the list of allowed characters.
-        self.VarList.set(yapg.build_list(**self.DicSettings))
+        self.var_list.set(yapg.build_list(**self.cfg_dic))
 
     def build_about(self, *args):
         """Builds an "about" window."""
-        self.AboutWin = About()
-        self.AboutWin.mainloop()
+        self.win_about = About()
+        self.win_about.mainloop()
 
     def generate(self, *args):
         """Generates a password and assigns it."""
         # Transfers GUI settings to the operational dictionary.
-        self.DicSettings = dict()
-        for k in self.TkSettings.keys():
-            self.DicSettings[k] = self.TkSettings[k].get()
+        self.cfg_dic = dict()
+        for config_item in self.cfg_tk.keys():
+            self.cfg_dic[config_item] = self.cfg_tk[config_item].get()
         # If there is any change in the settings, re-builds the list.
-        if self.TempSettings != self.DicSettings:
-            self.TempSettings = self.DicSettings
-            self.VarList.set(yapg.build_list(**self.DicSettings))
+        if self.cfg_tmp != self.cfg_dic:
+            self.cfg_tmp = self.cfg_dic
+            self.var_list.set(yapg.build_list(**self.cfg_dic))
         # Builds a new password.
-        self.VarPassword.set(yapg.build_pwd(self.VarList.get(), **self.DicSettings))
+        self.var_pwd.set(yapg.build_pwd(self.var_list.get(), **self.cfg_dic))
 
     def copy(self, *args):
         """Copies the password to the clipboard."""
-        Password = self.VarPassword.get()
-        if Password and not Password.lower().startswith("error"):
+        pwd = self.var_pwd.get()
+        if pwd and not pwd.lower().startswith("error"):
             self.clipboard_clear()
-            self.clipboard_append(Password)
+            self.clipboard_append(pwd)
 
 
 if __name__ == "__main__":
-    Root = PasswordGenerator()
-    Root.mainloop()
+    ROOT = PasswordGenerator()
+    ROOT.mainloop()
