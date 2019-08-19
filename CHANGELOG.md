@@ -10,6 +10,7 @@
 ### Change
 
 -   Markdown: removed useless encoding hints.
+-   GUI: propagated help text for random length.
 
 ### Fix
 

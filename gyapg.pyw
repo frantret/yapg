@@ -68,7 +68,7 @@ class PasswordGenerator(Window):
             textvariable=self.TkSettings["length"],
             foreground='black',
             background='white')
-        TxtChars = ttk.Label(self, text="characters")
+        TxtChars = ttk.Label(self, text=yapg.HELP_CHARS)
         ButDigits = ttk.Checkbutton(
             self, text=yapg.HELP["digits"], variable=self.TkSettings["digits"])
         ButLowercase = ttk.Checkbutton(

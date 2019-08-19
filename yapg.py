@@ -22,9 +22,10 @@ DEFAULT = {
     "homoglyphs": True,
     "compatible": False,
 }
+HELP_CHARS = "characters (can be random: min-max)"
 HELP = {
     "length":
-    "number of characters (can be random: min-max)",
+    f"number of {HELP_CHARS}",
     "digits":
     "allow digits",
     "lowercase":
