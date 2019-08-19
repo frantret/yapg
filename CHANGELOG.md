@@ -9,6 +9,7 @@
     -   GUI: propagated help text for random length.
     -   Replaced `.format()` by f-strings.
     -   Markdown / readme: use ATX-style headers.
+    -   GUI: use monospaced font to display the password.
 -   Deprecate
 -   Remove
     -   Markdown: removed useless encoding hints.

@@ -90,7 +90,7 @@ class PasswordGenerator(Window):
         )
         but_about = ttk.Button(self, text="about", command=self.build_about)
         but_generate = ttk.Button(self, text="generate", command=self.generate)
-        txt_password = ttk.Label(self, textvariable=self.var_pwd)
+        txt_password = ttk.Label(self, textvariable=self.var_pwd, font="TkFixedFont")
         but_copy = ttk.Button(self, text="copy to clipboard", command=self.copy)
         # Sets the grid layout.
         txt_length.grid(row=0, column=0, sticky=tk.W)
