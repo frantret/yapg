@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.2.3-dev (unreleased)
+## 0.2.3: Apply Black and Pylint (19 August 2019)
 
 -   New
     -   Added [.editorconfig](https://editorconfig.org/) file.
@@ -13,7 +13,6 @@
     -   GUI: use monospaced font to display the password.
     -   CLI: the `cli()` function returns the parser.
     -   Replaced `assert` statements by `if` conditions.
--   Deprecate
 -   Remove
     -   Markdown: removed useless encoding hints.
     -   CLI: removed useless parser option.
@@ -21,7 +20,6 @@
     -   Sorted imports with `isort`.
     -   Applied PEP8 with `black`.
     -   Applied linting with `pylint`.
--   Security
 
 ## 0.2.2: PEP8 and other minor changes (25 May 2018)
 

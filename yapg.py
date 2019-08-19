@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """yapg: yet another password generator"""
 __app__ = "yapg"
-__version__ = "0.2.3-dev"
+__version__ = "0.2.3"
 
 import argparse
 import math
