@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """yapg: yet another password generator"""
+__app__ = "yapg"
+__version__ = "0.2.3-dev"
 
 import argparse
 import math
@@ -126,6 +128,9 @@ def cli():
     """Command-line interface function."""
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    parser.add_argument(
+        "-V", "--version", action="version", version=f"{__app__} {__version__}"
     )
     parser.add_argument(
         "-l", "--length", type=str, default=DEFAULT["length"], help=HELP["length"]

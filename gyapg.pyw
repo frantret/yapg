@@ -32,7 +32,7 @@ class About(Window):
         super().__init__("About gyapg")
         self.columnconfigure(0, weight=1)
         # Sets the grid.
-        txt_doc = ttk.Label(self, text=__doc__.strip())
+        txt_doc = ttk.Label(self, text=f"{__doc__.strip()}\nversion {yapg.__version__}")
         txt_doc.grid(row=0, column=0, sticky=(tk.W, tk.E))
         self.give_space()
         # Assigns closing the window to the return key and click.

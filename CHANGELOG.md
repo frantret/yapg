@@ -1,10 +1,11 @@
 # Changelog
 
-## x.x.x
+## 0.2.3-dev (unreleased)
 
 -   New
     -   Added [.editorconfig](https://editorconfig.org/) file.
     -   Added development requirements file.
+    -   Added the version in the CLI and in the about window of the GUI.
 -   Change
     -   GUI: propagated help text for random length.
     -   Replaced `.format()` by f-strings.
