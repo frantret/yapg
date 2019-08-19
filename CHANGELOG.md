@@ -10,6 +10,7 @@
     -   Replaced `.format()` by f-strings.
     -   Markdown / readme: use ATX-style headers.
     -   GUI: use monospaced font to display the password.
+    -   CLI: the `cli()` function returns the parser.
 -   Deprecate
 -   Remove
     -   Markdown: removed useless encoding hints.

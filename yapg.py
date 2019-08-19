@@ -146,9 +146,9 @@ def cli():
     parser.add_argument(
         "-c", "--compatible", action="store_true", help=HELP["compatible"]
     )
-    return vars(parser.parse_args())
+    return parser
 
 
 if __name__ == "__main__":
-    kwargs = cli()
-    print(main(**kwargs))
+    PARSER = cli()
+    print(main(**vars(PARSER.parse_args())))
