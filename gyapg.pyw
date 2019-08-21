@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+# coding: utf-8
 """gyapg: graphical user interface for yapg (yet another password \
 generator)
 """

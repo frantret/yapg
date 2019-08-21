@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+# coding: utf-8
 """yapg: yet another password generator"""
 __app__ = "yapg"
 __version__ = "0.2.4-dev"
