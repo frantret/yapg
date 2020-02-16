@@ -6,7 +6,7 @@ __version__ = "0.2.4-dev"
 
 import argparse
 import math
-import random
+import secrets
 import string
 
 HOMOGLYPHS = "dclI1B8O0S5Z2rnm"
@@ -14,7 +14,6 @@ ERTYCOM = "bcdefghijklnoprstuvxy"
 ERTYCOMMON = set(ERTYCOM)
 ERTYCOMMON.update(ERTYCOM.upper())
 NB_CAND = 10
-SYSRAND = random.SystemRandom()
 DEFAULT = {
     "length": "30-40",
     "digits": True,
@@ -58,8 +57,8 @@ def build_list(**kwargs):
 def gen_pwd_cand(chars, len_min, len_max):
     """Generates one password candidate."""
     return "".join(
-        SYSRAND.choice(chars)
-        for _ in range(SYSRAND.choice(range(len_min, len_max + 1)))
+        secrets.choice(chars)
+        for _ in range(secrets.choice(range(len_min, len_max + 1)))
     )
 
 
@@ -77,7 +76,7 @@ def gen_pwd(chars, len_min, len_max):
     entropies = {c: entropy(c) for c in candidates}
     max_ent = max(entropies.values())
     strongest = tuple(c for c in entropies if entropies[c] == max_ent)
-    return SYSRAND.choice(strongest)
+    return secrets.choice(strongest)
 
 
 def build_pwd(chars, **kwargs):

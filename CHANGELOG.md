@@ -4,6 +4,7 @@
 
 -   New
 -   Change
+    -   Use the `secrets` module.
 -   Deprecate
 -   Remove
 -   Fix
